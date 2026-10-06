@@ -1,10 +1,39 @@
-__pycache__/
-*.pyc
-.pytest_cache/
-.ipynb_checkpoints/
-analysis_out/
-analysis_check/
-runs/
-data/*.csv
-*.db
-.DS_Store
+{
+  "title": "Failure-type-aware generative augmentation: evaluation code, predictions, and results",
+  "upload_type": "software",
+  "description": "Code, the complete archived predictions (30 repeated stratified splits x 8 strategies), and every result table and figure for the article 'Codifying Failure Knowledge for Industrial Decision Support: An Evaluation of Failure-Type-Aware Generative Augmentation' (Interdisciplinary Journal of Information, Knowledge, and Management). The study compares a cost-sensitive baseline, random undersampling, SMOTE, SMOTENC, Borderline-SMOTE, ADASYN, single-generator WGAN-GP augmentation and failure-type-aware WGAN-GP augmentation (one generator per failure mechanism) on the AI4I 2020 benchmark under a leakage-safe protocol. The dataset itself is not included.",
+  "creators": [
+    {
+      "name": "Lazanas, Alexis",
+      "affiliation": "Department of Mechanical Engineering and Aeronautics, University of Patras, Greece"
+    },
+    {
+      "name": "Kampouropoulos, Georgios",
+      "affiliation": "Department of Mechanical Engineering and Aeronautics, University of Patras, Greece"
+    }
+  ],
+  "license": "MIT",
+  "access_right": "open",
+  "keywords": [
+    "predictive maintenance",
+    "imbalanced learning",
+    "data augmentation",
+    "WGAN-GP",
+    "knowledge management",
+    "AI4I 2020",
+    "reproducibility"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://archive.ics.uci.edu/ml/datasets/AI4I+2020+Predictive+Maintenance+Dataset",
+      "relation": "isDerivedFrom",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://www.kaggle.com/datasets/shivamb/machine-predictive-maintenance-classification",
+      "relation": "isDerivedFrom",
+      "scheme": "url"
+    }
+  ],
+  "version": "2.0.0"
+}
