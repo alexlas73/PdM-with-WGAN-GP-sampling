@@ -10,6 +10,9 @@ authors:
   - family-names: Lazanas
     given-names: Alexis
     affiliation: "Department of Mechanical Engineering and Aeronautics, University of Patras, Greece"
+  - family-names: Kampouropoulos
+    given-names: Georgios
+    affiliation: "Department of Mechanical Engineering and Aeronautics, University of Patras, Greece"
 keywords:
   - predictive maintenance
   - imbalanced learning
@@ -25,3 +28,5 @@ preferred-citation:
   authors:
     - family-names: Lazanas
       given-names: Alexis
+    - family-names: Kampouropoulos
+      given-names: Georgios
