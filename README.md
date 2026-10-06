@@ -4,7 +4,7 @@ This repository holds the code, the complete archived predictions, and every res
 
 > **Codifying Failure Knowledge for Industrial Decision Support: An Evaluation of Failure-Type-Aware Generative Augmentation.**
 > *Interdisciplinary Journal of Information, Knowledge, and Management* (2026).
-> Alexis Lazanas.
+> Alexis Lazanas and Georgios Kampouropoulos.
 >
 > Version 2.0.0 of this repository. The code of the earlier single-partition analysis of the same design
 > (version 1) remains available under the release tag `v1-earlier-analysis`.
