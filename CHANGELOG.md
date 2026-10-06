@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.0.0 (2026)
+## 2.0.0 (October 2026)
 * Replaces the earlier single-partition analysis (version 1, release tag `v1-earlier-analysis`).
 * Repeated-split evaluation of eight strategies (30 stratified 70/15/15 splits), as reported in the IJIKM article.
 * Archived predictions (240 runs), all result tables and Figures 5-10.
