@@ -1,0 +1,47 @@
+{
+ "N_SPLITS": 30,
+ "RF_GRID": [
+  [
+   10,
+   1
+  ],
+  [
+   10,
+   3
+  ],
+  [
+   20,
+   1
+  ],
+  [
+   20,
+   3
+  ]
+ ],
+ "K_GRID": [
+  3,
+  5,
+  7
+ ],
+ "MULTI": {
+  "patience": 600,
+  "batch_size": 10,
+  "adv_learning_rate": 0.012414180611485873
+ },
+ "SINGLE": {
+  "patience": 390,
+  "batch_size": 10,
+  "adv_learning_rate": 0.010104754829563628
+ },
+ "METHODS": [
+  "Baseline",
+  "RUS",
+  "SMOTE",
+  "SMOTENC",
+  "Borderline-SMOTE",
+  "ADASYN",
+  "Single WGAN-GP",
+  "Multi WGAN-GP"
+ ],
+ "split": "stratified 70/15/15 on Target|FailureType, random_state=split"
+}

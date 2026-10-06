@@ -1,0 +1,11 @@
+# Minimal environment for Stage 3 (tables, statistics and figures from the archived predictions) and the tests.
+# No GPU, tabgan or torch needed. Verified with Python 3.13, NumPy 2.5, pandas 3.0, scikit-learn 1.9,
+# SciPy 1.18, matplotlib 3.11.
+numpy>=2.0
+pandas>=2.2
+scipy>=1.11
+scikit-learn>=1.4
+matplotlib>=3.8
+openpyxl>=3.1
+imbalanced-learn>=0.12
+pytest>=8

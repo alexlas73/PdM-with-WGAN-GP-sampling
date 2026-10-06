@@ -1,0 +1,27 @@
+# Citation metadata. GitHub shows a "Cite this repository" button from this file.
+cff-version: 1.2.0
+message: "If you use this software or the archived results, please cite both the article and this repository."
+title: "Failure-type-aware generative augmentation: evaluation code, predictions, and results"
+type: software
+version: 2.0.0
+license: MIT
+repository-code: "https://github.com/alexlas73/PdM-with-WGAN-GP-sampling"
+authors:
+  - family-names: Lazanas
+    given-names: Alexis
+    affiliation: "Department of Mechanical Engineering and Aeronautics, University of Patras, Greece"
+keywords:
+  - predictive maintenance
+  - imbalanced learning
+  - data augmentation
+  - WGAN-GP
+  - knowledge management
+  - AI4I 2020
+preferred-citation:
+  type: article
+  title: "Codifying Failure Knowledge for Industrial Decision Support: An Evaluation of Failure-Type-Aware Generative Augmentation"
+  journal: "Interdisciplinary Journal of Information, Knowledge, and Management"
+  year: 2026
+  authors:
+    - family-names: Lazanas
+      given-names: Alexis
