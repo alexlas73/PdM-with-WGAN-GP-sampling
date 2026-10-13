@@ -49,20 +49,28 @@ def main(argv=None):
     p = argparse.ArgumentParser(description='Build all result tables and figures from archived predictions.')
     p.add_argument('--run', default='results/predictions', help='folder with pred_sXX_<strategy>.csv and settings.csv')
     p.add_argument('--out', default='analysis_out', help='output folder')
+    p.add_argument('--replace', default=None, help='optional second archive (folder or folder with predictions.zip) '
+                   'whose (split, strategy) runs replace those in --run; e.g. results/round2_defaults for Table 8')
     a = p.parse_args(argv)
     RUN, OUT = a.run, a.out
     os.makedirs(OUT, exist_ok=True)
     os.makedirs(f'{OUT}/figures', exist_ok=True)
 
     # ---------------------------------------------------------------- load
-    files = sorted(glob.glob(f'{RUN}/pred_s*_*.csv'))
-    if files:
-        P = pd.concat([pd.read_csv(f) for f in files], ignore_index=True)
-    else:                                   # archive stored as one zip (results/predictions/predictions.zip)
-        import zipfile
-        with zipfile.ZipFile(f'{RUN}/predictions.zip') as z:
+    def read_archive(folder):
+        files = sorted(glob.glob(f'{folder}/pred_s*_*.csv'))
+        if files:
+            return pd.concat([pd.read_csv(f) for f in files], ignore_index=True)
+        import zipfile                      # archive stored as one zip (results/predictions/predictions.zip)
+        with zipfile.ZipFile(f'{folder}/predictions.zip') as z:
             names = sorted(n for n in z.namelist() if os.path.basename(n).startswith('pred_s') and n.endswith('.csv'))
-            P = pd.concat([pd.read_csv(z.open(n)) for n in names], ignore_index=True)
+            return pd.concat([pd.read_csv(z.open(n)) for n in names], ignore_index=True)
+    P = read_archive(RUN)
+    if a.replace:
+        R2 = read_archive(a.replace)
+        keys = set(zip(R2['split'], R2['method']))
+        P = pd.concat([P[[k not in keys for k in zip(P['split'], P['method'])]], R2], ignore_index=True)
+        print(f'replaced {len(keys)} (split, strategy) runs from {a.replace}')
     P['method'] = P['method'].astype(str)
     splits = sorted(P['split'].unique())
     grid = P.groupby(['split', 'method']).size().unstack()
@@ -70,6 +78,9 @@ def main(argv=None):
     complete = [s for s in splits if all((s, m) not in missing for m in METHODS)]
     J = len(complete)
     settings = pd.read_csv(f'{RUN}/settings.csv') if os.path.exists(f'{RUN}/settings.csv') else None
+    if a.replace and settings is not None and os.path.exists(f'{a.replace}/settings.csv'):
+        S2 = pd.read_csv(f'{a.replace}/settings.csv')
+        settings = pd.concat([settings[~settings['method'].isin(S2['method'].unique())], S2], ignore_index=True)
     versions = json.load(open(f'{RUN}/versions.json')) if os.path.exists(f'{RUN}/versions.json') else {}
     errors = open(f'{RUN}/errors.log').read().strip() if os.path.exists(f'{RUN}/errors.log') else ''
     P = P[P['split'].isin(complete)]

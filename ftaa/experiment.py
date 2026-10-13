@@ -50,7 +50,7 @@ def tune_and_predict(Zr, yr, Zv, yv, weighted, seed, n_jobs):
     return best
 
 
-def run_method(method, s, Xtr, ytr, Xv, yv, Xte, n_jobs):
+def run_method(method, s, Xtr, ytr, Xv, yv, Xte, n_jobs, generator_settings='tuned'):
     """Train one strategy on one split. Returns (validation probs, test probs, info dict)."""
     from imblearn.over_sampling import ADASYN, SMOTE, SMOTENC, BorderlineSMOTE
     from imblearn.under_sampling import RandomUnderSampler
@@ -59,6 +59,8 @@ def run_method(method, s, Xtr, ytr, Xv, yv, Xte, n_jobs):
     if method in ('Single WGAN-GP', 'Multi WGAN-GP'):
         from .samplers import OneTabGANSampler, SpecializedTabGANSampler
         cfg = C.SINGLE if method.startswith('Single') else C.MULTI
+        if generator_settings == 'defaults':
+            cfg = C.TABGAN_DEFAULTS
         cls = OneTabGANSampler if method.startswith('Single') else SpecializedTabGANSampler
         smp = cls(gen_params=C.gen_params(cfg, s), adv_params=C.adv_params(cfg, s),
                   categorical_features=C.CATEGORICAL_FEATURES, target_pos_ratio=C.TARGET_POS_RATIO, random_state=s)
@@ -135,6 +137,8 @@ def main(argv=None):
     ap_.add_argument('--splits', default=f'1-{C.N_SPLITS}', help='e.g. 1-30 (default), 1-3, or 1,5,9')
     ap_.add_argument('--methods', nargs='+', default=C.METHODS, choices=C.METHODS, metavar='METHOD',
                      help='subset of: ' + ', '.join(C.METHODS))
+    ap_.add_argument('--generator-settings', default='tuned', choices=['tuned', 'defaults'],
+                     help="'tuned' (paper, Tables 3-7) or 'defaults' (tabgan 2.2.2 defaults, Table 8)")
     ap_.add_argument('--n-jobs', type=int, default=max(1, (os.cpu_count() or 2) - 1))
     a = ap_.parse_args(argv)
 
@@ -146,7 +150,7 @@ def main(argv=None):
     print(audit)
     strat = D.strata(df)
     splits = parse_splits(a.splits)
-    json.dump({'N_SPLITS': C.N_SPLITS, 'RF_GRID': C.RF_GRID, 'K_GRID': C.K_GRID, 'MULTI': C.MULTI, 'SINGLE': C.SINGLE,
+    json.dump({'N_SPLITS': C.N_SPLITS, 'RF_GRID': C.RF_GRID, 'K_GRID': C.K_GRID, 'MULTI': C.MULTI, 'SINGLE': C.SINGLE, 'generator_settings': a.generator_settings,
                'METHODS': C.METHODS, 'split': 'stratified 70/15/15 on Target|FailureType, random_state=split'},
               open(f'{a.out}/config.json', 'w'), indent=1)
     print(f'\nStarting splits {splits[0]}..{splits[-1]} x {len(a.methods)} strategies -> {a.out}')
@@ -162,7 +166,7 @@ def main(argv=None):
                 continue
             seed_everything(s)
             try:
-                pv, pt, info = run_method(method, s, Xtr, ytr, Xv, yv, Xte, a.n_jobs)
+                pv, pt, info = run_method(method, s, Xtr, ytr, Xv, yv, Xte, a.n_jobs, a.generator_settings)
             except Exception as e:
                 print(f'split {s} {method} FAILED: {e}')
                 with open(f'{a.out}/errors.log', 'a') as f:

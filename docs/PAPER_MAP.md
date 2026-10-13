@@ -18,6 +18,7 @@
 | Per-mechanism results at the F1-optimal and 0.5 thresholds; per-mechanism significance | `ftaa.analysis` | `per_mechanism.csv` (`F1opt`, `t0.5`); `per_mechanism_diffs.csv` |
 | Table 6 (matched operating points, workload per 1,000) | `ftaa.analysis` | `results/tables/operating_points.csv` (`rec90`, `fpr1`; also `rec80`, `fpr2`, `F1opt`, `t0.5`) |
 | Table 7 (computational cost, selected settings) | `ftaa.analysis` | `results/tables/compute.csv`, `results/tables/selected_settings.csv` |
+| Table 8 (sensitivity to generator tuning) | `ftaa.experiment --generator-settings defaults`; `ftaa.analysis --replace` | `results/round2_defaults/tables/table8_generator_tuning.csv`; `results/round2_defaults/` |
 | Figures 9 and 10 (t-SNE, split 1) | `ftaa.tsne` | `results/figures/Fig9_tsne_resampling_split1.png`, `Fig10_tsne_generative_split1.png` |
 
 Operating-point codes: `t0.5` fixed threshold 0.5; `F1opt` F1-optimal threshold on validation; `rec80` / `rec90`

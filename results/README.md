@@ -7,6 +7,8 @@ Licensed under CC BY 4.0 (see `../LICENSE-RESULTS`).
   `settings.csv` (settings selected on validation and wall-clock time per split and strategy), `config.json`
   (the fixed design), `label_audit.csv`, and `versions.json` (environment of the run). All 240 runs completed
   without error.
+* `round2_defaults/` - Table 8: both generative strategies rerun with pre-specified generator settings
+  (tabgan 2.2.2 defaults); see `round2_defaults/README.md`.
 * `tables/` - output of `python -m ftaa.analysis --run results/predictions`: one CSV per table, the per-split
   metrics, `summary.json`, and `revision_results_tables.xlsx` (all tables, one sheet each). See
   `../docs/PAPER_MAP.md` for which file is which table.

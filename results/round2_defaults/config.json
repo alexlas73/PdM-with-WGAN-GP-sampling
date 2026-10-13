@@ -1,0 +1,43 @@
+{
+ "N_SPLITS": 30,
+ "RF_GRID": [
+  [
+   10,
+   1
+  ],
+  [
+   10,
+   3
+  ],
+  [
+   20,
+   1
+  ],
+  [
+   20,
+   3
+  ]
+ ],
+ "K_GRID": [
+  3,
+  5,
+  7
+ ],
+ "MULTI": {
+  "epochs": 500,
+  "patience": 25,
+  "batch_size": 500,
+  "adv_learning_rate": 0.02
+ },
+ "SINGLE": {
+  "epochs": 500,
+  "patience": 25,
+  "batch_size": 500,
+  "adv_learning_rate": 0.02
+ },
+ "METHODS": [
+  "Single WGAN-GP",
+  "Multi WGAN-GP"
+ ],
+ "split": "stratified 70/15/15 on Target|FailureType, random_state=split"
+}

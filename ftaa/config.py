@@ -22,6 +22,9 @@ K_GRID = (3, 5, 7)
 # Generator settings, selected once by the Optuna search in ftaa.hpo (original split, seed 42) and held fixed.
 MULTI = {'patience': 600, 'batch_size': 10, 'adv_learning_rate': 0.012414180611485873}
 SINGLE = {'patience': 390, 'batch_size': 10, 'adv_learning_rate': 0.010104754829563628}
+# Pre-specified generator settings (editor's request, round 2): the tabgan 2.2.2 library defaults, fixed in advance
+# and independent of AI4I 2020. Used by `python -m ftaa.experiment --generator-settings defaults` (results/round2_defaults).
+TABGAN_DEFAULTS = {'epochs': 500, 'patience': 25, 'batch_size': 500, 'adv_learning_rate': 0.02}
 GAN_EPOCHS = 8000                # upper bound; early stopping (patience) ends training earlier
 TARGET_POS_RATIO = 0.5           # 1:1 failures to normal records after augmentation
 FILTER_N_ESTIMATORS = 300        # LightGBM post-generation (adversarial) filter
@@ -47,7 +50,7 @@ EXPECTED_ROWS = 10000
 
 def gen_params(cfg, seed):
     """Generator parameters passed to tabgan.GANGenerator."""
-    return {'epochs': GAN_EPOCHS, 'patience': cfg['patience'], 'batch_size': cfg['batch_size'], 'seed': seed}
+    return {'epochs': cfg.get('epochs', GAN_EPOCHS), 'patience': cfg['patience'], 'batch_size': cfg['batch_size'], 'seed': seed}
 
 
 def adv_params(cfg, seed):
