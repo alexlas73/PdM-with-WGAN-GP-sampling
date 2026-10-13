@@ -9,7 +9,7 @@
     },
     {
       "name": "Kampouropoulos, Georgios",
-      "affiliation": "Department of Mechanical Engineering and Aeronautics, University of Patras, Greece"
+      "affiliation": "Tesla Inc., Athens, Greece"
     }
   ],
   "license": "MIT",
@@ -35,5 +35,5 @@
       "scheme": "url"
     }
   ],
-  "version": "2.0.0"
+  "version": "2.1.0"
 }
