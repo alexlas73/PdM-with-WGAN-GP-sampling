@@ -6,7 +6,7 @@ This repository holds the code, the complete archived predictions, and every res
 > *Interdisciplinary Journal of Information, Knowledge, and Management* (2026).
 > Alexis Lazanas and Georgios Kampouropoulos.
 >
-> Version 2.0.0 of this repository. The code of the earlier single-partition analysis of the same design
+> Version 2.1.0 of this repository. The code of the earlier single-partition analysis of the same design
 > (version 1) remains available under the release tag `v1-earlier-analysis`.
 
 The study asks whether partitioning generative data augmentation by **recorded failure mechanism** (one WGAN-GP
