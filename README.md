@@ -162,6 +162,9 @@ python -m ftaa.analysis --run results/predictions --out analysis_out
 python -m ftaa.experiment --data data/predictive_maintenance.csv --out runs/rerun
 python -m ftaa.analysis   --run runs/rerun --out runs/rerun/analysis
 
+# Table 8 - generator settings fixed in advance (tabgan defaults) instead of tuned (1 min, CPU)
+python -m ftaa.analysis --run results/predictions --replace results/round2_defaults --out analysis_round2
+
 # Figures 9-10 (about 13 min on a T4)
 python -m ftaa.tsne --data data/predictive_maintenance.csv --settings results/predictions/settings.csv --split 1 --out runs/figures
 
