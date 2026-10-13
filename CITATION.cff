@@ -3,7 +3,7 @@ cff-version: 1.2.0
 message: "If you use this software or the archived results, please cite both the article and this repository."
 title: "Failure-type-aware generative augmentation: evaluation code, predictions, and results"
 type: software
-version: 2.0.0
+version: 2.1.0
 license: MIT
 repository-code: "https://github.com/alexlas73/PdM-with-WGAN-GP-sampling"
 authors:
