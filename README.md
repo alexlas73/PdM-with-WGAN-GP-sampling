@@ -77,6 +77,7 @@ ftaa/                      the pipeline (a small Python package; run modules wit
   versions.py              records library versions
 results/
   predictions/             THE ARCHIVE: predictions.zip (240 prediction files) + settings.csv, config.json, label_audit.csv, versions.json
+     round2_defaults/      generative strategies rerun with pre-specified (tabgan default) settings: Table 8           
   tables/                  every table of the Results, as CSV and one Excel workbook, plus summary.json
   figures/                 Figures 5-10 (PNG 300 dpi; PDF where available)
 notebooks/run_in_colab.ipynb   step-by-step Colab notebook (levels A, B, C)
