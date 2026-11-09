@@ -6,6 +6,8 @@ This repository holds the code, the complete archived predictions, and every res
 > *Interdisciplinary Journal of Information, Knowledge, and Management* (2026).
 > Alexis Lazanas and Georgios Kampouropoulos.
 >
+> **Published article:** https://doi.org/10.28945/5904
+>
 > Version 2.1.0 of this repository. The code of the earlier single-partition analysis of the same design
 > (version 1) remains available under the release tag `v1-earlier-analysis`.
 
@@ -238,9 +240,21 @@ suite on every push (`.github/workflows/tests.yml`).
 
 ## 10. Citation and licenses
 
-If you use this code or the archived results, please cite the paper and this repository (see `CITATION.cff`;
-"Cite this repository" on GitHub).
+Please cite the article:
 
+> Lazanas, A., & Kampouropoulos, G. (2026). Codifying failure knowledge for industrial decision support: An evaluation of failure-type-aware generative augmentation. *Interdisciplinary Journal of Information, Knowledge, and Management, 21*, Article 23. https://doi.org/10.28945/5904
+
+```bibtex
+@article{lazanas2026codifying,
+  author  = {Lazanas, Alexis and Kampouropoulos, Georgios},
+  title   = {Codifying Failure Knowledge for Industrial Decision Support: An Evaluation of Failure-Type-Aware Generative Augmentation},
+  journal = {Interdisciplinary Journal of Information, Knowledge, and Management},
+  year    = {2026},
+  volume  = {21},
+  pages   = {Article 23},
+  doi     = {10.28945/5904}
+}
+```
 * **Code** (`ftaa/`, `tests/`, `notebooks/`): MIT License, see [`LICENSE`](LICENSE).
 * **Archived predictions, tables and figures** (`results/`): Creative Commons Attribution 4.0 International,
   see [`LICENSE-RESULTS`](LICENSE-RESULTS).
