@@ -25,6 +25,10 @@ preferred-citation:
   title: "Codifying Failure Knowledge for Industrial Decision Support: An Evaluation of Failure-Type-Aware Generative Augmentation"
   journal: "Interdisciplinary Journal of Information, Knowledge, and Management"
   year: 2026
+  volume: 21
+  number: 23
+  doi: "10.28945/5904"
+  url: "https://doi.org/10.28945/5904"
   authors:
     - family-names: Lazanas
       given-names: Alexis
