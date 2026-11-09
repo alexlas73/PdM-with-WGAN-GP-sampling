@@ -6,6 +6,7 @@ type: software
 version: 2.1.0
 license: MIT
 repository-code: "https://github.com/alexlas73/PdM-with-WGAN-GP-sampling"
+doi: "10.5281/zenodo.24076625"
 authors:
   - family-names: Lazanas
     given-names: Alexis
