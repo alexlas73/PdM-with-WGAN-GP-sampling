@@ -8,6 +8,8 @@ This repository holds the code, the complete archived predictions, and every res
 >
 > **Published article:** https://doi.org/10.28945/5904
 >
+> **Code and data archive (Zenodo):** https://doi.org/10.5281/zenodo.24076625
+>
 > Version 2.1.0 of this repository. The code of the earlier single-partition analysis of the same design
 > (version 1) remains available under the release tag `v1-earlier-analysis`.
 
